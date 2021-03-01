@@ -9,17 +9,17 @@
 
 a:link,
 a:visited{
-    color: black;
+    color: #EFB644;
 }
 
 div.breadcrumbs{
     background: black;
 }
 .module h2, .module caption, .inline-group h2{
-    background: #fb4700;
+    background: #EFB644;
 }
 #header{
-    background: #10284e;
+    background: black;
 }
 .submit-row > input {
     background: black;
