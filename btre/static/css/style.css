@@ -24,6 +24,7 @@ img {
   padding-bottom: 6rem;
   margin-bottom: 2rem;
 
+
 }
   #showcase .home-search {
     min-height: 400px;
@@ -36,7 +37,9 @@ img {
     left: 0;
     min-height: 400px;
     width: 100%;
-    background:#D3D3D3; }
+    background:white;
+    border: 1px solid black;
+    border-radius: 4px; }
 
 #services {
   min-height: 300px;
