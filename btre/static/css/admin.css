@@ -11,16 +11,22 @@ a:link,
 a:visited{
     color: #EFB644;
 }
-
+a:hover{
+    color: #efb644b4 !important; 
+}
 div.breadcrumbs{
     background: black;
 }
 .module h2, .module caption, .inline-group h2{
     background: #EFB644;
 }
-#header{
+#header, input{
     background: black;
 }
 .submit-row > input {
     background: black;
+}
+
+.submit-row > input:hover, input:hover {
+    color: #efb644b4 !important;
 }
