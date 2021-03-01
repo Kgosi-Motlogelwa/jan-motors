@@ -20,13 +20,14 @@ div.breadcrumbs{
 .module h2, .module caption, .inline-group h2{
     background: #EFB644;
 }
-#header, input{
-    background: black;
-}
-.submit-row > input {
+#header{
     background: black;
 }
 
-.submit-row > input:hover, input:hover {
+
+.submit-row:hover  {
     color: #efb644b4 !important;
+}
+.btn:hover{
+    background-color: #efb644b4;
 }
