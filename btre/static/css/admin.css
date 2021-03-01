@@ -13,21 +13,24 @@ a:visited{
 }
 a:hover{
     color: #efb644b4 !important; 
+    text-decoration: none;
 }
 div.breadcrumbs{
     background: black;
 }
-.module h2, .module caption, .inline-group h2{
+.module h2, .module caption, .inline-group h2, input[type=submit]:hover {
     background: #EFB644;
 }
 #header{
     background: black;
 }
-
+.submit-row > input {
+    background: black;
+}
 
 .submit-row:hover  {
     color: #efb644b4 !important;
 }
-.btn:hover{
+input[type=submit] {
     background-color: #efb644b4;
 }
