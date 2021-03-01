@@ -21,7 +21,7 @@ env = environ.Env(
 # reading .env file
 environ.Env.read_env()
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'SECRET_KEY=3n8-9++qb-1di47jy(9r@!kq!=v8kqk%fup^eknsc7-hsq@!+*')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,10 +37,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['https://kobe-trading.herokuapp.com/', '/kobe-trading.herokuapp.com/', '.herokuapp.com']
 
 
 LOGGING = {
@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'storages',
+    #'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +113,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jan-motors',
+        'NAME': 'kobe_trading_motors',
         'USER': 'postgres',
         'PASSWORD': 'PostGRESS_8',
         'HOST': 'localhost',
@@ -167,7 +168,7 @@ STATICFILES_DIRS = [
 # AWS storage
 AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID_1')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY_1')
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME_1')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME_Kobe')
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 
@@ -202,6 +203,7 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url

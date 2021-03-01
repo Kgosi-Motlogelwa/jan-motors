@@ -23,5 +23,5 @@ urlpatterns = [
     path('listings/', include('listings.urls')),
     #path('accounts/', include('accounts.urls')),
     #path('contacts/', include('contacts.urls')),
-    path('Nippon_Admin/', admin.site.urls) 
+    path('Kobe_Admin/', admin.site.urls) 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

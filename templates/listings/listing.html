@@ -5,13 +5,15 @@
 {% endblock %}
 
 {%block content%}
+
+
 <section id="showcase-inner" class="py-5">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
           <h1 class="display-4">{{listing.title}}</h1>
-          <p class="lead">
-            <i class="fas fa-map-marker"></i> {{listing.dealership}} Branch</p>
+          <!-- <p class="lead">
+            <i class="fas fa-map-marker"></i> {{listing.dealership}} Branch</p> -->
         </div>
       </div>
     </div>
@@ -47,15 +49,15 @@
           <div class="row mb-5 thumbs">
             {% if listing.photo_1 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_1.url }}" data-lightbox="home-images" style="padding: 2px;">
-                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid" >
+              <a href="{{ listing.photo_1.url }}" data-lightbox="home-images">
+                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
 
             {% if listing.photo_2 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_2.url }}" data-lightbox="home-images" style="padding: 2px;">
+              <a href="{{ listing.photo_2.url }}" data-lightbox="home-images">
                 <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid">
               </a>
             </div>
@@ -63,7 +65,7 @@
             
             {% if listing.photo_3 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_3.url }}" data-lightbox="home-images" style="padding: 2px;">
+              <a href="{{ listing.photo_3.url }}" data-lightbox="home-images">
                 <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid">
               </a>
             </div>
@@ -71,7 +73,7 @@
             
             {% if listing.photo_4 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_4.url }}" data-lightbox="home-images" style="padding: 2px;">
+              <a href="{{ listing.photo_4.url }}" data-lightbox="home-images">
                 <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid">
               </a>
             </div>
@@ -79,7 +81,7 @@
             
             {% if listing.photo_5 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_5.url }}" data-lightbox="home-images" style="padding: 2px;">
+              <a href="{{ listing.photo_5.url }}" data-lightbox="home-images">
                 <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid">
               </a>
             </div>
@@ -87,12 +89,11 @@
             
             {% if listing.photo_6 %}
             <div class="col-md-2">
-              <a href="{{ listing.photo_6.url }}" data-lightbox="home-images" style="padding: 2px;">
+              <a href="{{ listing.photo_6.url }}" data-lightbox="home-images">
                 <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
               </a>
             </div>
             {% endif %}
-
           </div>
           <!-- Fields -->
           <div class="row mb-5 fields">

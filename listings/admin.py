@@ -12,7 +12,7 @@ class ListingAdmin(admin.ModelAdmin):
         form = super().get_form(request, obj, change, **kwargs)
         form.base_fields['price'].label = 'Price (leave empty for negotiable)'
         form.base_fields['mileage'].label = 'Mileage (try not to leave empty)'
-        form.base_fields['engine'].label = 'Engine (try not to leave empty)'
+        form.base_fields['engine'].label = 'Engine Capacity (try not to leave empty)'
         return form
 
 admin.site.register(Listing, ListingAdmin)

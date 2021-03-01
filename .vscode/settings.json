@@ -1,6 +1,4 @@
 {
-    "python.pythonPath": "c:\\Users\\komot\\Documents\\GitHub\\jan-motors\\env\\Scripts\\python.exe",
-    "editor.quickSuggestions": true,
-    "workbench.settings.editor": "json",
-    "python.linting.pylintArgs": ["--load-plugins=pylint_django"],
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "c:\\Users\\komot\\Documents\\GitHub\\jan-motors\\env\\Scripts\\python.exe"
 }

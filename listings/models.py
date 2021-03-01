@@ -27,7 +27,7 @@ class Listing(models.Model):
         ('Petrol','Petrol'),('Diesel','Diesel'),
     ]
     Dealership = [
-        ('Gaborone','Gaborone'),('Francistown','Francistown'),
+        ('Gaborone','Gaborone')
     ]
     Body_Type = [
         ('Compact','Compact'),('Hatchback','Hatchback'),('Sedan','Sedan'),('SUV','SUV'),
@@ -57,7 +57,7 @@ class Listing(models.Model):
 
     # Fields
     title = models.CharField(max_length=200)
-    contact_number = models.CharField(max_length=2002, default="75 436 608")
+    contact_number = models.CharField(max_length=2002, default="71 389 656")
     available = models.CharField(max_length=50, choices=Available, default="No")
     brand_model = models.CharField(max_length=50, choices=Car_Models, default="Model (All)")
     transmission = models.CharField(max_length=20 , choices=Transmission, default="Transmission (All)")
