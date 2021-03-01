@@ -40,7 +40,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = False
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['https://nippon-motors.herokuapp.com/', '/nippon-motors.herokuapp.com/', '.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 LOGGING = {
@@ -112,7 +112,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nippon_motors',
+        'NAME': 'jan-motors',
         'USER': 'postgres',
         'PASSWORD': 'PostGRESS_8',
         'HOST': 'localhost',
