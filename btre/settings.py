@@ -215,6 +215,7 @@ DATABASES['default'].update(db_from_env)
 import django_heroku
 django_heroku.settings(locals())
 
+import logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -231,7 +232,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'mysite.log',
+            'filename': 'btre.log',
             'formatter': 'verbose'
         },
     },
