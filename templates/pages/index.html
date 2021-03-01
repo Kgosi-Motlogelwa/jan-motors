@@ -1,0 +1,171 @@
+{%extends 'base.html'%}
+{% load humanize %}
+{% block title %}
+  | Home
+{% endblock %}
+{%block content%}
+  <!-- Showcase -->
+  <section id="showcase">
+    <div class="container text-center">
+      <!-- Alerts -->
+      {% include 'partials/_alert.html' %}
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Nippon Motors Botswana
+          </h1>
+          <br>
+          <!-- <p class="lead">Botswana's Car Dealers, With Branches in Gaborone and Palapye</p>
+          --><div class="search"> 
+            <form  action = "{% url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label>Price</label>
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Price (Any)</option>
+                    {% for key,value in price_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                  </select>
+                </div>  
+
+                <div class="col-md-3 mb-3">
+                  <label>Model/Brand</label>
+                  <select name="brand_model" class="form-control" data-title="Select Model">
+                    <option selected="true" disabled="disabled">Models (Any)</option>
+                      {% for x,y in form.fields.brand_model.choices %}
+                        <option value="{{x}}">{{y}}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label>Year</label>
+                  <select name="year" class="form-control" data-title="Select Year">
+                    <option selected="true" disabled="disabled">Year (Any)</option>
+                    {% for x,y in form.fields.year.choices %}
+                      <option value="{{ x }}">{{ y }}</option>
+                    {% endfor %}
+                  </select>
+                </div>  
+
+                
+
+                <div class="col-md-3 mb-3">
+                  <label>Mileage</label>
+                  <select name="mileage" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Mileage (Any)</option>
+                    {% for key,value in mileage_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                    {% endfor %}
+                  </select>
+                  </div>
+              </div>
+              
+              <!-- Form Row 2 -->
+             
+              <div class="form-row">
+                <div class="col-md-3 mb-3">
+                  <label>Body Type</label>
+                  <select name="body_type" class="form-control" data-title="Select Body Type">
+                    <option selected="true" disabled="disabled">Body Type (Any)</option>
+                    {% for x,y in form.fields.body_type.choices %}
+                     <option value="{{ x }}">{{ y }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label>Dealership</label>
+                  <select name="dealership" class="form-control" data-title="Select Dealership">
+                    <option selected="true" disabled="disabled">Dealership (Any)</option>
+                    {% for x,y in form.fields.dealership.choices %}
+                     <option value="{{ x }}">{{ y }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label>Fuel Type</label>
+                  <select name="fuel_type" class="form-control" data-title="Select Fuel Type">
+                    <option selected="true" disabled="disabled">Fuel Type (Any)</option>
+                    {% for x,y in form.fields.fuel_type.choices %}
+                     <option value="{{ x }}">{{ y }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <label>Transmission</label>
+                  <select name="transmission" class="form-control" data-title="Select Transmission">
+                    <option selected="true" disabled="disabled">Transmission (Any)</option>
+                    {% for x,y in form.fields.transmission.choices %}
+                     <option value="{{ x }}">{{ y }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-block mt-4" type="submit">Search</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section id="listings" class="py-5 index_margin">
+    <div class="container">
+      <h3 class="text-center mb-3">Latest Listings</h3>
+      <div class="row">
+        {% if listings  %}
+          {%for listing in listings %}
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card listing-preview">
+              <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="">
+              <div class="card-img-overlay">
+                <h2>
+                  <span class="badge badge-secondary text-white">{%if listing.available == "No"%}SOLD{%else%}{%if listing.price == None %}Negotiable{%else%}P {{listing.price | intcomma}}{%endif%}{%endif%}</span>
+                </h2>
+              </div>
+              <div class="card-body">
+                <div class="listing-heading text-center">
+                  <h4 class="text-primary">{{ listing.title }}</h4>
+                  <p>
+                    <i class="fas fa-map-marker text-secondary"></i> {{listing.dealership}} Branch</p>
+                </div>
+                <hr>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">   
+                    <i class="fas fa-cog"></i> {{listing.transmission}} </div>
+                  <div class="col-6">
+                    <i class="far fa-calendar-alt"></i> {{listing.year}}</div>
+                </div>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">
+                    
+                    <i class="fas fa-road"></i> {%if listing.mileage == None %} Unknown {%else%}  {{listing.mileage}} km{%endif%}</div>
+                  <div class="col-6">
+                    <i class="fas fa-phone"></i> {{listing.contact_number}}</div>
+                </div>
+                <hr>
+                <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+        {% else %}
+          <div class="col-md-12">
+            <p>No Listings Available</p>
+          </div>
+        {% endif %}   
+        
+
+      </div>
+    </div>
+  </section>
+
+  
+{%endblock%}

@@ -1,0 +1,170 @@
+{%extends 'base.html'%}
+{% load humanize%}
+{% block title %}
+  | {{listing.title}}
+{% endblock %}
+
+{%block content%}
+<section id="showcase-inner" class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">{{listing.title}}</h1>
+          <p class="lead">
+            <i class="fas fa-map-marker"></i> {{listing.dealership}} Branch</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'listings' %}">Listings</a>
+          </li>
+          <li class="breadcrumb-item active">{{listing.title}}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  <!-- Alerts -->
+  {% include 'partials/_alert.html' %}
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+      <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
+      <div class="row">
+        <div class="col-md-9">
+          <!-- Home Main Image -->
+          <img src="{{ listing.photo_main.url }}" alt="" class="img-main img-fluid mb-3">
+          <!-- Thumbnails -->
+          <div class="row mb-5 thumbs">
+            {% if listing.photo_1 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_1.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid" >
+              </a>
+            </div>
+            {% endif %}
+
+            {% if listing.photo_2 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_2.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            
+            {% if listing.photo_3 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_3.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            
+            {% if listing.photo_4 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_4.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            
+            {% if listing.photo_5 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_5.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            
+            {% if listing.photo_6 %}
+            <div class="col-md-2">
+              <a href="{{ listing.photo_6.url }}" data-lightbox="home-images" style="padding: 2px;">
+                <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+
+          </div>
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-alt"></i> Price:
+                  <span class="float-right">{%if listing.price == None %}Negotiable{%else%}P {{listing.price | intcomma}}{%endif%}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-cog"></i> Transmission:
+                  <span class="float-right">{{listing.transmission}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="far fa-calendar-alt"></i> Year:
+                  <span class="float-right">{{listing.year}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-road"></i> Mileage:
+                  <span class="float-right">{%if listing.mileage == None%} Unknown {%else%}  {{listing.mileage}} km{%endif%}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-check-circle"></i> Available:
+                  <span class="float-right">{{listing.available}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-users"></i> Seats:
+                  <span class="float-right">{{listing.seat}}
+                  </span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-th-large"></i> Model Brand:
+                  <span class="float-right">{{listing.brand_model}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-phone"></i>/<i class="fab fa-whatsapp"></i> Contact Number:
+                  <span class="float-right">+267 {{listing.contact_number}}</span>
+                </li>
+ 
+              </ul>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              {{listing.description}}
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{%endblock%}
