@@ -27,7 +27,7 @@ class Listing(models.Model):
         ('Petrol','Petrol'),('Diesel','Diesel'),
     ]
     Dealership = [
-        ('Palapye','Palapye')
+        ('Gaborone','Gaborone'),('Palapye','Palapye'),('Francistown','Francistown')
     ]
     Body_Type = [
         ('Compact','Compact'),('Hatchback','Hatchback'),('Sedan','Sedan'),('SUV','SUV'),
