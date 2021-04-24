@@ -114,3 +114,7 @@ img {
 
 @media (max-width: 768px) {
   }
+
+.default{
+    color: #EFB644;
+}

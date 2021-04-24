@@ -11,11 +11,14 @@ a:link,
 a:visited{
     color: #EFB644;
 }
-
+a:hover{
+    color: #efb644b4 !important; 
+    text-decoration: none;
+}
 div.breadcrumbs{
     background: black;
 }
-.module h2, .module caption, .inline-group h2{
+.module h2, .module caption, .inline-group h2, input[type=submit]:hover {
     background: #EFB644;
 }
 #header{
@@ -24,6 +27,10 @@ div.breadcrumbs{
 .submit-row > input {
     background: black;
 }
-.default{
-    color: #EFB644;
+
+.submit-row:hover  {
+    color: #efb644b4 !important;
+}
+input[type=submit] {
+    background-color: #efb644b4;
 }
