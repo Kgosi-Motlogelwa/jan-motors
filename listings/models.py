@@ -78,6 +78,7 @@ class Listing(models.Model):
     photo_6 = models.ImageField(upload_to= 'photos/%Y/%m/%d', blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
+    extra_details = models.TextField(blank=True, null=True, default="")
     def __str__(self):
         return self.title #This is used in the admin area as the main field to be displayed
 
