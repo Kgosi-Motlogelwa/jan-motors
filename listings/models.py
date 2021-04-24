@@ -27,7 +27,7 @@ class Listing(models.Model):
         ('Petrol','Petrol'),('Diesel','Diesel'),
     ]
     Dealership = [
-        ('Windhoek','Windhoek'),('Keetmanshoop','Keetmanshoop'),('Francistown','Francistown')
+        ('Windhoek','Windhoek'),('Keetmanshoop','Keetmanshoop')
     ]
     Body_Type = [
         ('Compact','Compact'),('Hatchback','Hatchback'),('Sedan','Sedan'),('SUV','SUV'),
